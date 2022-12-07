@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title> Home</title>
+    <link rel="icon" href="img/branding/icon.png">
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+const api_url = "https://randomuser.me/api/";
+ 
+  async function getUser() {
+   
+    // Making an API call (request)
+    // and getting the response back
+    const response = await fetch(api_url);
+ 
+    // Parsing it to JSON format
+    const data = await response.json();
+    console.log(data.results);
+ 
+    // Retrieving data from JSON
+    const user = data.results[0];
+    let { title, first, last } = user.name;
+    let { gender, email, phone } = user;
+    let image = user.picture.large;
+    let image_icon = user.picture.thumbnail;
+    let age = user.dob.age;
+    let { city, state, country } = user.location;
+ 
+    let fullName = title + ". " + first + " " + last;
+    
+ 
+    // Accessing the div container and modify/add
+    // elements to the containers
+    document.getElementById("head").innerHTML = fullName;
+    document.getElementById("email").href = "mailto:" + email;
+    document.getElementById("email").innerHTML = email;
+    document.getElementById("phone").href = "tel:" + phone;
+    document.getElementById("phone").innerHTML = phone;
+    // accessing the span container
+    document.querySelector("#age").textContent = age;
+    document.querySelector("#gender").textContent = gender;
+ 
+    document.querySelector("#location").textContent
+          = city + ", " + state;
+     
+    document.querySelector("#country").textContent = country;
+ 
+    // Creating a new element and appending it
+    // to previously created containers
+    let img = document.createElement("img");
+    let img_div = document.getElementById("user-img");
+    img.src = image;
+    img_div.append(img);
+ 
+
+  }
+ 
+  // Calling the function
+  getUser();
+
+
+        
+    $(document).ready(() => {
+
+    // process each img tag
+    $("#image_rollovers img").each( (index, img) => {
+        const oldURL = img.src;      // gets the src attribute
+        const newURL = img.id;       // gets the id attribute
+
+        // preload rollover image		
+        const rolloverImage = new Image();
+        rolloverImage.src = newURL;
+
+        // set up event handlers for hovering over an image
+        $(img).hover(   // use jQuery syntax to access hover() method
+            () => img.src = newURL,  // hover over
+            () => img.src = oldURL   // hover out
+        ); 
+    });
+    
+});
+setInterval(showTime, 1000);
+        function showTime() {
+            let time = new Date();
+            let hour = time.getHours();
+            let min = time.getMinutes();
+            let sec = time.getSeconds();
+            am_pm = "AM";
+ 
+            if (hour > 12) {
+                hour -= 12;
+                am_pm = "PM";
+            }
+            if (hour == 0) {
+                hr = 12;
+                am_pm = "AM";
+            }
+            
+            // format date and time
+            hour = hour < 10 ? "0" + hour : hour;
+            min = min < 10 ? "0" + min : min;
+            sec = sec < 10 ? "0" + sec : sec;
+ 
+            let currentTime = hour + ":"
+                + min + ":" + sec + am_pm;
+ 
+            document.getElementById("clock")
+                .innerHTML = currentTime;
+        }
+ 
+        showTime();
+        
+    </script>
+
+
+</head>
+
+<body>
+
+     <div class="navbar" id="navbar">
+    <div class="row">
+        <button class="brand">
+            <img src="Images/Logo.png" alt="Bargain Rail logo icon" style="width: 80%; height: 90%; transform: translate(10px);">
+        </button>
+        <a href="index.html" style="color: blue; transform: translate(-20px);">  <div id="clock">8:10:45</div></a>
+    </div> 
+    <div class="tabs">
+        <button class="tab">
+            <a href="index.html"><strong>home</strong></a>
+        </button>
+        <button>
+            <a href="BMI.html"><strong>BMI Tracker</strong></a>
+        </button>
+        <button>
+            <a href="Admin.html"><strong>Admin</strong></a>
+        </button>
+         <button class="login" id="login">
+            <a href="LogIn.html"><strong>login</strong></a> / <a href="Signup.html">register</a>
+        </button>
+
+        <button class="spacer"></button>
+<input type="search" class="form-control search-dropdown" placeholder="Search..." id="top-search" spellcheck="false">`
+
+</div>
+        
+        <a href="javascript:void(0);" class="icon">
+            <i class="fa fa-bars"></i>
+        </a>
+        
+    </div>
+
+
+    <div class="hero">
+        <div class="hero-image" style="background-image: url('./Images/Gym.jpg');" id="ParallaxImage"></div>
+        <div class="hero-content" id="ParallaxContent">
+            <h1>Get<span style="color: gray;">Fitz</span></h1>
+            <h4>Be the best you imaginable</h4>
+        </div>
+    </div>
+
+
+  
+   <div class="grid-container"> 
+<div class="module-card">
+                
+     <div id="image_rollovers">
+           <img src="Images/bmi-adult.jpg" alt="" id="Images/Check.jpg">
+        </div>
+                <h3 class="module-title">BMI Tracker</h3>
+                <p>Keep check of your <strong>BMI</strong></p>
+                <p class="module-desc">Use this calculator to check your body mass index (BMI) and find out if you're a healthy weight. Or you can use it to check your child's BMI.</p>
+            </div>
+<div class="module-card">
+                
+     <div id="image_rollovers">
+            <img src="Images/Crunches.jpg" alt="" id="Images/R.jfif">
+        </div>
+                <h3 class="module-title"> Sign Up</h3>
+                <p>Sign up<strong> TODAY!</strong></p>
+                <p class="module-desc">Make sure to sign up today to get exclusive access to promotions and other deals and membership offers.</p>
+            </div>
+<div class="module-card">
+<div class="content">
+    <div class="head">
+    <h3 class="module-title">Users From around the world</h3>
+      <h2 id="head"></h2>
+    </div>
+    <div class="email">
+      <i class="fa fa-envelope" style=
+        "font-size: 15px; color: blue;"></i>
+      <a href="" id="email"> </a>
+    </div>
+    <div class="phone">
+      <i class="fa fa-phone" style=
+        "font-size: 15px; color: blue;"></i>
+      <a href="" id="phone"> </a>
+    </div>
+    <br />
+    <div id="user-img"></div>
+    <br />
+ 
+    <div class="details">
+      <table>
+        <tr>
+          <td>Age</td>
+          <td><span id="age"></span></td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td><span id="gender"></span></td>
+        </tr>
+        <tr>
+          <td>Location</td>
+          <td><span id="location"></span></td>
+        </tr>
+        <tr>
+          <td>Country</td>
+          <td><span id="country"></span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+       </div>
+    </div>
+<div class="rela-block footer">
+    <div class="rela-block social-buttons-container">
+        <div class="social-button facebook-button"></div>
+        <div class="social-button insta-button"></div>
+        <div class="social-button twitter-button"></div>
+    </div>
+    <div class="rela-block footer-links-container">
+        <div class="footer-flex-column">
+            <ul> Quick Links
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+            </ul>
+        </div>
+        <div class="footer-flex-column">
+            <ul> Services
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+            </ul>
+        </div>
+        <div class="footer-flex-column">
+            <ul>Contact Us
+                <li><a href="#">087 1234 567</a></li>
+                <li><a href="#">getFitz@gmail.com</a></li>
+                <li><a href="#">getFitz.forum</a></li>
+              
+            </ul>
+        </div>
+    </div>
+
+    <div class="rela-block footer-logo-container">
+        <a href="index.html"><img src="Images/Logo.png" alt="Bargain Rail Logo"></a>
+        
+    </div>
+</div>
+</body>
+
+</html>

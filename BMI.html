@@ -1,0 +1,161 @@
+<html>
+ <head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<title>BMI Calculator</title>
+<script type="text/javascript">
+    function computeBMI()
+    {
+        //Obtain user inputs
+        var height=Number(document.getElementById("height").value);
+        var heightunits=document.getElementById("heightunits").value;
+        var weight=Number(document.getElementById("weight").value);
+        var weightunits=document.getElementById("weightunits").value;
+
+
+        //Convert all units to metric
+        if (heightunits=="inches") height/=39.3700787;
+        if (weightunits=="lb") weight/=2.20462;
+
+        //Perform calculation
+        var BMI=weight/Math.pow(height,2);
+
+        //Display result of calculation
+        document.getElementById("output").innerText=Math.round(BMI*100)/100;
+
+        var output =  Math.round(BMI*100)/100
+        if (output<18.5)
+        document.getElementById("comment").innerText = "Underweight";
+      else   if (output>=18.5 && output<=25)
+        document.getElementById("comment").innerText = "Normal";
+     else   if (output>=25 && output<=30)
+        document.getElementById("comment").innerText = "Obese";
+     else   if (output>30)
+        document.getElementById("comment").innerText = "Overweight";
+       // document.getElementById("answer").value = output; 
+    }
+setInterval(showTime, 1000);
+        function showTime() {
+            let time = new Date();
+            let hour = time.getHours();
+            let min = time.getMinutes();
+            let sec = time.getSeconds();
+            am_pm = "AM";
+ 
+            if (hour > 12) {
+                hour -= 12;
+                am_pm = "PM";
+            }
+            if (hour == 0) {
+                hr = 12;
+                am_pm = "AM";
+            }
+ 
+            hour = hour < 10 ? "0" + hour : hour;
+            min = min < 10 ? "0" + min : min;
+            sec = sec < 10 ? "0" + sec : sec;
+ 
+            let currentTime = hour + ":"
+                + min + ":" + sec + am_pm;
+ 
+            document.getElementById("clock")
+                .innerHTML = currentTime;
+        }
+ 
+        showTime();
+   
+</script>
+ </head>
+ <body>
+     <div class="navbar" id="navbar">
+    <div class="row">
+        <button class="brand">
+            <img src="Images/Logo.png" alt="Bargain Rail logo icon" style="width: 80%; height: 90%; transform: translate(10px);">
+        </button>
+        <a href="index.html" style="color: blue; transform: translate(-20px);">  <div id="clock">8:10:45</div></a>
+    </div> 
+    <div class="tabs">
+        <button class="tab">
+            <a href="index.html"><strong>home</strong></a>
+        </button>
+        <button>
+            <a href="BMI.html"><strong>BMI Tracker</strong></a>
+        </button>
+        <button>
+            <a href="Admin.html"><strong>Admin</strong></a>
+        </button>
+         <button class="login" id="login">
+            <a href="LogIn.html"><strong>login</strong></a> / <a href="Signup.html">register</a>
+        </button>
+
+        <button class="spacer"></button>
+<input type="search" class="form-control search-dropdown" placeholder="Search..." id="top-search" spellcheck="false">`
+
+</div>
+        
+        <a href="javascript:void(0);" class="icon">
+            <i class="fa fa-bars"></i>
+        </a>
+        
+    </div>
+
+    <br>
+    <br><br>
+<h1>Body Mass Index Calculator</h1>
+<p>Enter your height: <input type="text" id="height"/>
+    <select type="multiple" id="heightunits">
+        <option value="metres" selected="selected">metres</option>
+        <option value="inches">inches</option>
+    </select>
+     </p>
+<p>Enter your weight: <input type="text" id="weight"/>
+    <select type="multiple" id="weightunits">
+        <option value="kg" selected="selected">kilograms</option>
+        <option value="lb">pounds</option>
+    </select>
+</p>
+<input type="submit" value="computeBMI" onclick="computeBMI();">
+<h1>Your BMI is: <span id="output">?</span></h1>
+
+<h2>This means you are: <span id="comment"> ?</span> </h2> 
+
+    <div class="rela-block footer">
+    <div class="rela-block social-buttons-container">
+        <div class="social-button facebook-button"></div>
+        <div class="social-button insta-button"></div>
+        <div class="social-button twitter-button"></div>
+    </div>
+    <div class="rela-block footer-links-container">
+        <div class="footer-flex-column">
+            <ul> Quick Links
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+            </ul>
+        </div>
+        <div class="footer-flex-column">
+            <ul> Services
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+            </ul>
+        </div>
+        <div class="footer-flex-column">
+            <ul>Contact Us
+                <li><a href="#">087 1234 567</a></li>
+                <li><a href="#">getFitz@gmail.com</a></li>
+                <li><a href="#">getFitz.forum</a></li>
+              
+            </ul>
+        </div>
+    </div>
+
+    <div class="rela-block footer-logo-container">
+        <a href="index.html"><img src="Images/Logo.png" alt="Bargain Rail Logo"></a>
+        
+    </div>
+</div>
+ </body>

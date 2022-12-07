@@ -1,0 +1,407 @@
+body
+{
+color: black;
+font-weight: bold;
+font-family: 'Montserrat', sans-serif;
+font-size: 16px;
+background-image: url(Images/sunset.jpg);
+}
+
+
+label.validation-error{
+    color:   red;
+    margin-left: 5px;
+}
+
+.parent-container
+{
+width: 100%;
+height: 100%;
+color: #000000;
+}
+
+.loginholder
+{
+padding: 25px 50px 25px 50px;
+background-color: #fff;
+display: inline-block;
+}
+
+.inputbox
+{
+border: 1px solid #464646;
+padding: 5px;
+width: 300px;
+color: #464646;
+background-color: #fff;
+border-radius: 5px;
+transition: all 0.5s;
+font-weight: normal;
+}
+
+.inputbox:focus
+{
+border: 1px solid blue;
+padding: 5px;
+background-color: white;
+color: blue;
+font-weight: bold;
+}
+
+h2
+{
+padding: 0px;
+margin: 0px;
+}
+
+.btn-normal
+{
+padding: 5px 35px;
+color: #fff;
+transition: all 0.5s;
+border-radius: 5px;
+border: 2px solid gray;
+background-color: blue;
+font-weight: bold;
+cursor: pointer;
+}
+
+.btn-normal:hover, .btn-normal:focus
+{
+color: gray;
+border: 2px solid gray;
+background-color: white;
+text-decoration: none;
+}
+
+.forgetpassword
+{
+font-weight: bold;
+color: blue;
+}
+
+.forgetpassword:hover, .forgetpassword:focus
+{
+color: black;
+}
+
+.btn-normal-logo
+{
+background-color: white;
+border: 1px solid #464646;
+color: #464646;
+font-weight: bold;
+border-radius: 5px;
+}
+
+.btn-normal-logo:focus, .btn-normal-logo:hover
+{
+border: 1px solid blue;
+color: blue;
+}
+
+/* Navbar */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100vw;
+    min-height: 4rem;
+    padding: 0 200px;
+    justify-content: space-between;
+    align-items: center;
+    overflow: auto;
+    background: #F4F4F4;
+    z-index: 1000;
+}
+
+@media (max-width: 920px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        width: 100%;
+        box-shadow: 0 0 1px gray;
+    }
+}
+
+.navbar .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 920px) {
+    .navbar .row {
+        width: 100%;
+    }
+}
+
+.navbar button {
+    cursor: pointer;
+    background: #F4F4F4;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    margin-right: 2rem;
+    color: black;
+}
+
+@media (max-width: 920px) {
+    .navbar button {
+        height: 4rem;
+        display: flex;
+        flex-direction: center;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.navbar .brand {
+    position: relative;
+    transform-origin: center;
+    height: 4rem;
+    padding-right: 0.625rem;
+    background: #F4F4F4;
+}
+
+.navbar .brand:hover::before {
+    animation: 1s spin;
+}
+
+.navbar .brand::before {
+    position: absolute;
+    content: "";
+    top: 1.375rem;
+    right: 0;
+    width: 2px;
+    height: 1.25rem;
+    border-left: solid 2px blue;
+}
+
+.navbar .tab {
+    color: gray;
+}
+
+.navbar .tab:nth-last-child(1) {
+    margin-right: 0;
+}
+
+.navbar a,
+.navbar a:focus,
+.navbar a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar a:hover {
+    color: blue;
+}
+
+.navbar .icon {
+    display: none;
+}
+
+.scrolled {
+    border-bottom: 2px solid blue;
+}
+
+@media screen and (max-width: 920px) {
+    .navbar .tabs button {
+        display: none;
+    }
+
+    .navbar a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media (max-width: 920px) {
+    .navbar .tabs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .navbar .tabs.hidden {
+        display: none;
+    }
+}
+.footer {
+    min-height: 100px;
+    background-color: gray;
+    box-sizing: border-box;
+    border-top: 6px solid blue;
+    color: #fff;
+}
+
+.social-buttons-container {
+    min-height: 100px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+.social-button {
+    display: inline-block;
+    position: relative;
+    transform: scale(0.75);
+    height: 75px;
+    width: 75px;
+    background-size: cover !important;
+    transition: 0.3s ease;
+    margin: 14px 2px;
+    cursor: pointer;
+}
+
+.social-button:hover {
+    transform: scale(1);
+    transition: 0.3s cubic-bezier(0.3, 0.2, 0, 2.5);
+}
+
+.social-button.twitter-button {
+    background: url("https://cdn4.iconfinder.com/data/icons/social-icon-4/842/twitter-256.png") no-repeat center;
+}
+
+.social-button.facebook-button {
+    background: url("https://cdn4.iconfinder.com/data/icons/social-icon-4/842/facebook-256.png") no-repeat center;
+}
+
+.social-button.insta-button {
+    background: url("https://cdn4.iconfinder.com/data/icons/social-icon-4/842/instagram-256.png") no-repeat center;
+}
+
+.footer-links-container {
+    display: flex;
+    width: 90%;
+    max-width: 950px;
+    margin: 30px auto 80px;
+    text-align: center;
+}
+
+.footer-links-container .footer-flex-column {
+    position: relative;
+    flex: 1 1 0;
+    text-align: center;
+    border-right: 1px solid black;
+}
+
+.footer-links-container .footer-flex-column:last-child {
+    border: none;
+}
+
+.footer-links-container .footer-flex-column ul {
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    margin: auto;
+    color: black;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.footer-links-container .footer-flex-column li {
+    display: block;
+    position: relative;
+    margin: 15px 7px;
+    color: #666;
+    text-align: center;
+    font-size: 16px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.footer-links-container .footer-flex-column li:hover {
+    color: black;
+}
+
+.footer-links-container .footer-flex-column li a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer-logo-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.footer-logo-container copy {
+    color: black;
+}
+
+.container{background-color: white;}
+
+/* Full-width input fields */
+  input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+color: black;
+}
+
+
+
+/* Set a style for all buttons */
+.signupbtn{
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+color: white;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+  float: left;
+  width: 50%;
+}
+
+
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+    width: 100%;
+  }
+}
+

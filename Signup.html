@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head> 
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="site.css">
+    </head>
+<script>
+function validate() {
+    isValid = true;
+    if (document.getElementById("user").value == "") {
+        isValid = false;
+        document.getElementById("userValidationError").classList.remove("hide");
+    } else {
+        isValid = true;
+        if (!document.getElementById("userValidationError").classList.contains("hide"))
+            document.getElementById("userValidationError").classList.add("hide");
+    }
+    return isValid;
+}    
+    
+function validate() {
+    isValid = true;
+    if (document.getElementById("email").value == "") {
+        isValid = false;
+        document.getElementById("emailValidationError").classList.remove("hide");
+    } else {
+        isValid = true;
+        if (!document.getElementById("emailValidationError").classList.contains("hide"))
+            document.getElementById("emailValidationError").classList.add("hide");
+    }
+    return isValid;
+}
+function validate() {
+    isValid = true;
+    if (document.getElementById("id_password").value == "") {
+        isValid = false;
+        document.getElementById("passwordValidationError").classList.remove("hide");
+    } else {
+        isValid = true;
+        if (!document.getElementById("passwordValidationError").classList.contains("hide"))
+            document.getElementById("passwordValidationError").classList.add("hide");
+    }
+    return isValid;
+}    
+    
+
+const togglePassword = document.querySelector('#togglePassword');
+  const password = document.querySelector('#id_password');
+
+  togglePassword.addEventListener('click', function (e) {
+   
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+
+    this.classList.toggle('fa-eye-slash');
+});
+    
+
+    
+    </script>
+<body>
+<div class="navbar" id="navbar">
+    <div class="row">
+        <button class="brand">
+            <img src="Images/Logo.png" alt="Bargain Rail logo icon" style="width: 80%; height: 90%; transform: translate(10px);">
+        </button>
+        <h2> <input type="search" class="form-control search-dropdown" placeholder="Search..." id="top-search" spellcheck="false"></h2>
+    </div> 
+    <div class="tabs">
+        <button class="tab">
+            <a href="index.html"><strong>home</strong></a>
+        </button>
+        <button>
+            <a href="BMI.html"><strong>BMI Tracker</strong></a>
+        </button>
+        <button>
+            <a href="Admin.html"><strong>Admin</strong></a>
+        </button>
+         <button class="login" id="login">
+            <a href="LogIn.html"><strong>login</strong></a> / <a href="Signup.html">register</a>
+
+        <button class="spacer"></button>
+
+        </button>
+
+</div>
+    </div>
+
+<br>
+<br><br><br>
+<form action="action_page.php" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+        <label for="user"><b>User ID</b></label><label class="validation-error hide" id="userValidationError">This field is required.</label>
+    <input type="text" placeholder="Enter User ID" id="user" class="inputbox" name="user" required>
+
+    <label for="email"><b>Email</b></label><label class="validation-error hide" id="emailValidationError">This field is required.</label>
+    <input type="text" placeholder="Enter Email"  id="email" class="inputbox" name="email" required>
+
+    <label for="password"><b>Password</b></label><label class="validation-error hide" id="passswordValidationError">This field is required.</label>
+    <input type="password" placeholder="Enter Password" name="password"  name="password" class="inputbox" required="" id="id_password">
+<i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+
+    <label for="psw-repeat"><b>Repeat Password</b></label><label class="validation-error hide" id="passwordValidationError">This field is required </label>
+    <input type="password" placeholder="Repeat Password" name="password"  name="password" class="inputbox" required="" id="id_password">
+<i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+    <div class="buttons">
+        <a href="index.html"> <button type="buttons" class="cancelbtn">Cancel</button></a>
+        <a href="LogIn.html"><button type="submit" class="signupbtn">Sign Up</button></a>
+    </div>
+  </div>
+    </div>
+</form>
+<br>
+<br><br><br>
+<br>
+<div class="rela-block footer">
+    <div class="rela-block social-buttons-container">
+        <div class="social-button facebook-button"></div>
+        <div class="social-button insta-button"></div>
+        <div class="social-button twitter-button"></div>
+    </div>
+    <div class="rela-block footer-links-container">
+        <div class="footer-flex-column">
+            <ul> Quick Links
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+            </ul>
+        </div>
+        <div class="footer-flex-column">
+            <ul> Services
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+                <li><a href="#">LINK</a></li>
+            </ul>
+        </div>
+        <div class="footer-flex-column">
+            <ul>Contact Us
+                <li><a href="#">087 1234 567</a></li>
+                <li><a href="#">getFitz@gmail.com</a></li>
+                <li><a href="#">getFitz.forum</a></li>
+              
+            </ul>
+        </div>
+    </div>
+
+    <div class="rela-block footer-logo-container">
+        <a href="index.html"><img src="Images/Logo.png" alt="Bargain Rail Logo"></a>
+        
+    </div>
+</div>
+    </body>
+

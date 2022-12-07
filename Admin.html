@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+     Admin page</title>
+    <link rel="stylesheet" href="admin.css">
+<script>
+ 
+var selectedRow = null
+
+function onFormSubmit() {
+    if (validate()) {
+        var formData = readFormData();
+        if (selectedRow == null)
+            insertNewRecord(formData);
+        else
+            updateRecord(formData);
+        resetForm();
+    }
+}
+
+function readFormData() {
+    var formData = {};
+    formData["fullName"] = document.getElementById("fullName").value;
+    formData["product"] = document.getElementById("product").value;
+    return formData;
+}
+
+function insertNewRecord(data) {
+    var table = document.getElementById("adminList").getElementsByTagName('tbody')[0];
+    var newRow = table.insertRow(table.length);
+    cell1 = newRow.insertCell(0);
+    cell1.innerHTML = data.fullName;
+    cell2 = newRow.insertCell(1);
+    cell2.innerHTML = data.product;
+   
+}
+
+function resetForm() {
+    document.getElementById("fullName").value = "";
+    document.getElementById("product").value = "";
+    selectedRow = null;
+}
+
+function validate() {
+    isValid = true;
+    if (document.getElementById("fullName").value == "") {
+        isValid = false;
+        document.getElementById("fullNameValidationError").classList.remove("hide");
+    } else {
+        isValid = true;
+        if (!document.getElementById("fullNameValidationError").classList.contains("hide"))
+            document.getElementById("fullNameValidationError").classList.add("hide");
+    }
+    return isValid;
+}    
+    
+    </script>
+</head>
+
+<body>
+<div class="navbar" id="navbar">
+    <div class="row">
+        <button class="brand">
+            <img src="Images/Logo.png" alt="Bargain Rail logo icon" style="width: 80%; height: 90%; transform: translate(10px);">
+        </button>
+        <h2> <input type="search" class="form-control search-dropdown" placeholder="Search..." id="top-search" spellcheck="false"></h2>
+    </div> 
+    <div class="tabs">
+        <button class="tab">
+            <a href="index.html"><strong>home</strong></a>
+        </button>
+        <button>
+            <a href="BMI.html"><strong>BMI Tracker</strong></a>
+        </button>
+        <button>
+            <a href="Admin.html"><strong>Admin</strong></a>
+        </button>
+         <button class="login" id="login">
+            <a href="LogIn.html"><strong>login</strong></a> / <a href="Signup.html">register</a>
+
+        <button class="spacer"></button>
+
+        </button>
+
+</div>
+    </div>
+<br>
+<br><br><br>
+<br><br> <div class="header">
+	<h1><center>Admin Page</center></h1>
+    </div>
+	<hr>
+			<div class="admin-form">
+                <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+                    <div>
+                        <label>Full Name*</label><label class="validation-error hide" id="fullNameValidationError">This field is required.</label>
+                        <input type="text" name="fullName" id="fullName">
+                    </div>
+                    <div>
+                        <label>Product</label>
+                        <input type="text" name="product" id="product">
+                    </div>
+                                    <div  class="form-action-buttons">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+		</div>
+		<br/>
+		<div class = "admin-table">
+                <table class="list" id="adminList">
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>product Id</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+    </div>
+
+</body>
+</html>
